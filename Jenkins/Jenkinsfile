@@ -4,15 +4,10 @@ node{
             sh 'node --version'
         }
     }
-    
     stage('Build Docker Image'){
-        steps {
-            echo 'Building Docker Images...'
-        }
+        echo 'Building Docker Images...'
     }
     stage('Push to Artifactory'){
-        steps {
-            echo 'Pushing to artifactory...'
-        }
+        echo 'Pushing to artifactory...'
     }
 }
