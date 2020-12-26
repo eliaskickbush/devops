@@ -3,7 +3,8 @@ node{
         stage('Test'){
             sh 'node --version'
             dir('./Jenkins') {
-                sh 'ls'
+                sh 'npm install'
+                sh 'npm test'
             }
         }
     }
