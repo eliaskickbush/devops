@@ -1,10 +1,10 @@
 node{
-    docker.image('node:14').inside {
+    docker.image('node:14').inside('-v $HOME/.m2:/root/.m2') {
         stage('Test'){
+            sh 'pwd'
+            sh 'ls'
             sh 'node --version'
             dir('./Jenkins') {
-                sh 'chown -R 502:20 "./.npm"'
-                sh 'npm cache clean --force '
                 sh 'npm install'
                 sh 'npm test'
             }
