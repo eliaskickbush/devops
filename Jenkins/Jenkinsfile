@@ -1,13 +1,16 @@
-node{
-    docker.image('node:14').inside {
+pipeline {
+    agent any
+    stages {
         stage('Test'){
-            sh 'node --version'
+            docker.image('node:14').inside {
+                sh 'node --version'
+            }
         }
-    }
-    stage('Build Docker Image'){
-        echo 'Building Docker Images...'
-    }
-    stage('Push to Artifactory'){
-        echo 'Pushing to artifactory...'
+        stage('Build Docker Image'){
+            echo 'Building Docker Images...'
+        }
+        stage('Push to Artifactory'){
+            echo 'Pushing to artifactory...'
+        }
     }
 }
