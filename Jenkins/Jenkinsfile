@@ -3,6 +3,7 @@ node{
         stage('Test'){
             sh 'node --version'
             dir('./Jenkins') {
+                sh 'npm cache clean --force '
                 sh 'npm install'
                 sh 'npm test'
             }
