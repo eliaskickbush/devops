@@ -1,5 +1,5 @@
 node{
-    docker.inside('node:14'){
+    docker.image('node:14').inside {
         stage('Test'){
             sh 'node --version'
         }
