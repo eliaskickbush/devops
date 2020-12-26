@@ -3,7 +3,7 @@ node{
         stage('Test'){
             sh 'node --version'
             dir('Jenkins').inside {
-
+                sh 'ls'
             }
         }
     }
