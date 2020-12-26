@@ -5,10 +5,13 @@ node{
         }
     }
     stage('Build Docker Image'){
-        echo 'Building Docker Images...'
+        docker.withRegistry('docker.io', 'docker-leordas') {
+            def customImage = docker.build("leordas/jenkins-test:${env.BUILD_NUMBER}", "./Jenkins")
+            customImage.push()
+        }    
     }
-    stage('Push to Artifactory'){ 
-        echo 'Pushing to artifactory...'
+    stage('Deploy'){ 
+        echo 'Deploying image...'
     }
     
 }
