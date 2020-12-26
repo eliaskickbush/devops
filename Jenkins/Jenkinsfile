@@ -8,7 +8,7 @@ node{
         }
     }
     stage('Build Docker Image'){
-        if params.Push{
+        if(params.Push){
             docker.withRegistry('https://docker.io', 'docker-leordas') {
             def customImage = docker.build("leordas/jenkins-test:${env.BUILD_NUMBER}", "./Jenkins")
             customImage.push()
