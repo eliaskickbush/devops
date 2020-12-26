@@ -4,7 +4,7 @@ node{
             sh 'node --version'
             dir('./Jenkins') {
                 sh 'npm install'
-                sh 'npm test'
+                sh 'npx jest'
             }
         }
     }
