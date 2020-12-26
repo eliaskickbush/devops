@@ -2,7 +2,7 @@ node{
     docker.image('node:14').inside {
         stage('Test'){
             sh 'node --version'
-            dir('Jenkins').inside {
+            dir('./Jenkins') {
                 sh 'ls'
             }
         }
