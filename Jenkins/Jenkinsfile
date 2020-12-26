@@ -2,13 +2,19 @@ node{
     docker.image('node:14').inside {
         stage('Test'){
             sh 'node --version'
+            dir('Jenkins').inside {
+
+            }
         }
     }
     stage('Build Docker Image'){
-        docker.withRegistry('https://docker.io', 'docker-leordas') {
+        if params.Push{
+            docker.withRegistry('https://docker.io', 'docker-leordas') {
             def customImage = docker.build("leordas/jenkins-test:${env.BUILD_NUMBER}", "./Jenkins")
             customImage.push()
-        }    
+        }else{
+            echo "Skipping building & pushing since CD flag was ${params.Push}"
+        }
     }
     stage('Deploy'){ 
         echo 'Deploying image...'
