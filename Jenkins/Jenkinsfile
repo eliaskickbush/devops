@@ -4,7 +4,6 @@ node{
             sh 'node --version'
             dir('./Jenkins') {
                 sh 'su root'
-                sh 'chown -R 502:20 "./.npm"'
                 sh 'npm install'
                 sh 'npx jest'
             }
