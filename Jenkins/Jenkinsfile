@@ -1,16 +1,25 @@
 pipeline {
     agent any
     stages {
-        stage('Test'){
-            docker.image('node:14').inside {
+        stage('Test')
+            agent {
+                docker {
+                    image 'node:14'
+                }
+            }
+            steps {
                 sh 'node --version'
             }
         }
         stage('Build Docker Image'){
-            echo 'Building Docker Images...'
+            steps {
+                echo 'Building Docker Images...'
+            }
         }
         stage('Push to Artifactory'){
-            echo 'Pushing to artifactory...'
+            steps {
+                echo 'Pushing to artifactory...'
+            }
         }
     }
 }
