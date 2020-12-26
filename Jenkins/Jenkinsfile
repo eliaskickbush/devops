@@ -1,8 +1,6 @@
 node{
     docker.image('node:15.5.0-alpine3.12').inside {
         stage('Test'){
-            sh 'pwd'
-            sh 'ls'
             sh 'node --version'
             dir('./Jenkins') {
                 sh 'npm install'
