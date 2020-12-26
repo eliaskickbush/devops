@@ -1,5 +1,5 @@
 node{
-    docker.image('node:14').inside('-v $HOME/.m2:/root/.m2') {
+    docker.image('node:15.5.0-alpine3.12').inside {
         stage('Test'){
             sh 'pwd'
             sh 'ls'
