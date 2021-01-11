@@ -3,7 +3,6 @@ node{
         stage('Test'){
             sh 'node --version'
             dir('./Jenkins') {
-                sh 'su root'
                 sh 'npm install'
                 sh 'npx jest'
             }
