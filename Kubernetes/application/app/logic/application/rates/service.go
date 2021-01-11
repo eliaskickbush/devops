@@ -9,10 +9,10 @@ import (
 )
 
 type Service struct {
-	Base string
-	CacheDao cache.IDao
+	Base                string
+	CacheDao            cache.IDao
 	OpenExchangeService openexchange.IService
-	Logger *log.Logger
+	Logger              *log.Logger
 }
 
 func (s Service) GetExchangeRate(symbol string) (float64, error) {

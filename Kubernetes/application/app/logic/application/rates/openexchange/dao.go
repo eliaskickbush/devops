@@ -23,7 +23,7 @@ func (d Dao) FetchLatest() (*Response, error) {
 	u, err := url.Parse(builtURL)
 	if err != nil {
 		d.Logger.Printf("unexpected error building request url: %s\n", err.Error())
-		return nil,ErrMalformedURL
+		return nil, ErrMalformedURL
 	}
 
 	// Set App ID
@@ -37,20 +37,20 @@ func (d Dao) FetchLatest() (*Response, error) {
 	resp, err := d.HTTPClient.Do(req)
 	if err != nil {
 		d.Logger.Printf("unexpected error executing request: %s\n", err.Error())
-		return nil,ErrRequestExecution
+		return nil, ErrRequestExecution
 	}
 
 	body, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
 		d.Logger.Printf("unexpected error reading body: %s\n", err.Error())
-		return nil,ErrReadingBody
+		return nil, ErrReadingBody
 	}
 
 	response := &Response{}
 	err = json.Unmarshal(body, response)
 	if err != nil {
 		d.Logger.Printf("unexpected error unmarshalling body: %s\n", err.Error())
-		return nil,ErrUnmarshallingBody
+		return nil, ErrUnmarshallingBody
 	}
 
 	return response, nil

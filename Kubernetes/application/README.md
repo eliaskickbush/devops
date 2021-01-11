@@ -8,4 +8,4 @@ To run locally one may use docker compose, for which a docker-compose.yml file i
 
 Make sure to have an available 8080 port on your host machine, or change the binding to something available on the docker-compose.yml file.
 
-For a clearer explanation of the required environment variables, see [app repo](./app).
+For a clearer explanation of the required environment variables, see [app repo](app).

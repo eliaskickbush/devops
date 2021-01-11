@@ -5,7 +5,7 @@ import (
 )
 
 type Service struct {
-	Dao IDao
+	Dao    IDao
 	Logger *log.Logger
 }
 
