@@ -9,8 +9,8 @@ services:
     environment:
       REDIS_ADDRESS: "redis"
       REDIS_PORT: 6379
-      BASE_URL: $BASE_URL
-      APP_ID: $APP_ID
+      BASE_URL: https://openexchangerates.org/api
+      APP_ID: 8dbacaaa1980491fa8f4bb41d5e59673
 
   redis:
     image: redis:latest

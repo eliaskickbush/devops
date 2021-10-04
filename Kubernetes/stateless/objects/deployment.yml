@@ -1,0 +1,19 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: stateless
+  labels:
+    app: stateless
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: stateless
+  template:
+    metadata:
+      labels:
+        app: stateless
+    spec:
+      containers:
+      - name: stateless
+        image: 297813884257.dkr.ecr.us-east-1.amazonaws.com/stateless:0.0.3
