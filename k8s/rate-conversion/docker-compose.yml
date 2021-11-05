@@ -1,0 +1,18 @@
+version: "3"
+services:
+  kubertest:
+    build: app
+    ports:
+      - 8080:8080
+    depends_on:
+      - redis
+    environment:
+      REDIS_ADDRESS: "redis"
+      REDIS_PORT: 6379
+      BASE_URL: https://openexchangerates.org/api
+      APP_ID: 8dbacaaa1980491fa8f4bb41d5e59673
+
+  redis:
+    image: redis:latest
+    #ports:
+      #- 6379:6379
